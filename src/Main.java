@@ -1,12 +1,15 @@
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
-    UniversityStudent student = new UniversityStudent("Anna",23,4, "MIT", 25);
+        ArrayList<Student> students = new ArrayList<>();
 
-    System.out.println(student.toString());
+        students.add(new Student("Anna",14,4.5));
+        students.add(new Student("Mary",15,5));
+        students.add(new Student("Bob",16,2.5));
 
-    if (student.isExcellent()) {
-        System.out.println("Отличник!");
-    }
-
+        for (Student student : students) {
+            System.out.println(student.toString() + ": " + (student.isExcellent() ? "Отличник" : "Обычный студент"));
+        }
     }
 }

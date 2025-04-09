@@ -1,7 +1,10 @@
-public class Student {
-    private String name;
-    private int age;
+public class Student extends Person {
     private double averageScore;
+
+    @Override
+    public void introduce() {
+        System.out.println("Я студент по имени " + name);
+    }
 
     public Student() {
     }
@@ -13,7 +16,7 @@ public class Student {
     }
 
     public boolean isExcellent() {
-        return averageScore > 4.5;
+        return averageScore >= 4.5;
     }
 
     @Override
