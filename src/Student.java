@@ -6,8 +6,7 @@ public class Student extends Person {
         System.out.println("Я студент по имени " + name);
     }
 
-    public Student() {
-    }
+    public Student() {}
 
     public Student(String name, int age, double averageScore) {
         this.name = name;
@@ -19,19 +18,14 @@ public class Student extends Person {
         return averageScore >= 4.5;
     }
 
-    @Override
-    public String toString() {
-        return "Student{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", averageScore=" + averageScore +
-                '}';
-    }
-
     public void setData(String name, int age, double averageScore) {
         this.name = name;
         this.age = age;
-        this.averageScore = averageScore;
+        try {
+            this.averageScore = averageScore;
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
     }
 
     public int getAge() {
@@ -57,4 +51,13 @@ public class Student extends Person {
     public void setName(String name) {
         this.name = name;
     }
+    @Override
+    public String toString() {
+        return "Student{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", averageScore=" + averageScore +
+                '}';
+    }
+
 }

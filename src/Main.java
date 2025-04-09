@@ -2,14 +2,22 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList<Student> students = new ArrayList<>();
+        ArrayList<Person> persons = new ArrayList<>();
+        Student student = new Student("Artem",19,5);
+        persons.add(student);
+        Worker worker = new Worker("Nikita", 20, "employee");
+        persons.add(worker);
 
-        students.add(new Student("Anna",14,4.5));
-        students.add(new Student("Mary",15,5));
-        students.add(new Student("Bob",16,2.5));
-
-        for (Student student : students) {
-            System.out.println(student.toString() + ": " + (student.isExcellent() ? "Отличник" : "Обычный студент"));
+        for (Person person : persons) {
+            person.introduce();
+            if (person instanceof Student) {
+                System.out.println(((Student) person).isExcellent() ? "Отличник!" : "Не отличник.");
+            }
         }
+
+        for (Person person : persons) {
+            System.out.println(person);
+        }
+
     }
 }
