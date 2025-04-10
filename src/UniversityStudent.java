@@ -2,7 +2,7 @@ public class UniversityStudent extends Student implements ScholarshipEligible {
     private String university;
     private int studentId;
 
-    public UniversityStudent(String name, int age, double averageScore, String university, int studentId) {
+    public UniversityStudent(String name, int age, double averageScore, String university, int studentId) throws InvalidStudentDataException {
         super(name, age, averageScore);
         this.university = university;
         this.studentId = studentId;

@@ -39,3 +39,42 @@ ArrayList<Person> persons = new ArrayList<>();
             System.out.println(person);
         }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////// Throws //////////////////////////////////////////////////////////////////
+1.
+import java.util.ArrayList;
+
+public class Main {
+    public static void main(String[] args) {
+        try{
+            int[] numbers = {1,2,3,4};
+            System.out.println(numbers[2]);
+        }catch (ArrayIndexOutOfBoundsException e){
+            System.out.println("Выход за пределы массива!");
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }finally {
+            System.out.println("Этот блок выполнится в любом случае.");
+        }
+    }
+}
+
+2.
+        ArrayList<Person> persons = new ArrayList<>();
+
+        try {
+            Student s1 = new Student("Artem",19,5);
+            Student s2 = new Student("Mary",14,-1);
+            persons.add(s1);
+            persons.add(s2);
+        } catch (InvalidStudentDataException e) {
+            System.out.println("Ошибка при создании студента" + e.getMessage());;
+        }
+
+        Worker worker = new Worker("Nikita", 20, "employee");
+        persons.add(worker);
+
+        for (Person person : persons) {
+            person.introduce();
+        }
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

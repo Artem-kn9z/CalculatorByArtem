@@ -8,7 +8,8 @@ public class Student extends Person {
 
     public Student() {}
 
-    public Student(String name, int age, double averageScore) {
+    public Student(String name, int age, double averageScore) throws InvalidStudentDataException {
+        ThrowExample.validateScore(averageScore);
         this.name = name;
         this.age = age;
         this.averageScore = averageScore;
